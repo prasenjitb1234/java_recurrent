@@ -45,17 +45,45 @@ public class App
     	Transaction transaction = session.beginTransaction();
     	
     	// --------Insert Operation ------- 
+//    	try {
+//    		session.save(user3);
+//        	transaction.commit();
+//        	
+//        	System.out.println("USER DETAILS ADDED SUCCESSFULLY");
+//    	}
+//    	catch(Exception e) {
+//    		transaction.rollback();
+//    		e.printStackTrace();
+//    		System.out.println("USER DETAILS NOT ADDED DUE TO SOME ERROR");
+//    	}
+//    	********************
+    	// --------- select operation ---------
+    	
     	try {
-    		session.save(user3);
-        	transaction.commit();
-        	
-        	System.out.println("USER DETAILS ADDED SUCCESSFULLY");
+    		// retrives data of user with id 1 in database . >>'1L' is added cause Long data type in User entity
+    		User user = session.get(User.class, 1L);
+    		
+    		if(user != null) {
+    			System.out.println(user.getId());
+        		System.out.println(user.getName());
+        		System.out.println(user.getEmail());
+        		System.out.println(user.getPassword());
+        		System.out.println(user.getGender());
+        		System.out.println(user.getCity());
+    		}
+    		else {
+    			System.out.println("User Not Found !");
+    		}
+    		
+    		
+    		
     	}
     	catch(Exception e) {
-    		transaction.rollback();
-    		e.printStackTrace();
-    		System.out.println("USER DETAILS NOT ADDED DUE TO SOME ERROR");
+    		e.printStackTrace()
     	}
+     	
+//    	***********
+    	
     	
     	
     }
