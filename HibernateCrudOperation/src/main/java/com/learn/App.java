@@ -44,6 +44,7 @@ public class App
     	Session session = sessionFactory.openSession();
     	Transaction transaction = session.beginTransaction();
     	
+    	// --------Insert Operation ------- 
     	try {
     		session.save(user3);
         	transaction.commit();
@@ -53,6 +54,7 @@ public class App
     	catch(Exception e) {
     		transaction.rollback();
     		e.printStackTrace();
+    		System.out.println("USER DETAILS NOT ADDED DUE TO SOME ERROR");
     	}
     	
     	
