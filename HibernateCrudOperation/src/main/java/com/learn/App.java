@@ -47,6 +47,8 @@ public class App
     	try {
     		session.save(user3);
         	transaction.commit();
+        	
+        	System.out.println("USER DETAILS ADDED SUCCESSFULLY");
     	}
     	catch(Exception e) {
     		transaction.rollback();
