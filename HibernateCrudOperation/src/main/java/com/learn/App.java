@@ -87,28 +87,51 @@ public class App
     	// --------Update  Operation ------- 
     	
     	// updating city for id 2 
-    	User user = session.get(User.class, 2L);
-    	user.setCity("Lahore");
+    	
+//    	User user = session.get(User.class, 2L);
+//    	user.setCity("Lahore");
+//    	
+//    	try {
+//    		session.saveOrUpdate(user);
+//        	transaction.commit();
+//        	
+//        	System.out.println("USER DETAILS Updated SUCCESSFULLY !");
+//    	}
+//    	catch(Exception e) {
+//    		transaction.rollback();
+//    		e.printStackTrace();
+//    		System.out.println("USER DETAILS NOT Updaed DUE TO SOME ERROR !");
+//    	}
     	
     	
+//    	************
+    	// Delete Operation 
+    	
+    	User user = new User();
+    	user.setId(3L);
     	
     	try {
-    		session.saveOrUpdate(user);
+    		session.delete(user);
         	transaction.commit();
         	
-        	System.out.println("USER DETAILS Updated SUCCESSFULLY !");
+        	System.out.println("USER DETAILS Deleted SUCCESSFULLY !");
     	}
     	catch(Exception e) {
     		transaction.rollback();
     		e.printStackTrace();
-    		System.out.println("USER DETAILS NOT Updaed DUE TO SOME ERROR !");
+    		System.out.println("USER DETAILS NOT Deleted DUE TO SOME ERROR !");
     	}
+    	
+//    	**********
+    	
+//    	Okay We finished CRUD operations in hibernate 
+    	
+    	
+    	
+    	
     	
     	
     	
     }
-    
-    
-    
     
 }
